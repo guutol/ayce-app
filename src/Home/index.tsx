@@ -1,6 +1,16 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import { Button } from "@rneui/themed";
 import { styles } from "@/Home/styles";
+import { AyceOptions } from "@/types/AyceOption";
+import { AyceOptionItem } from "@/types/AyceOptionItem";
+import { Rodizio } from "@/components/Rodizio";
+
+const AYCE_OPTION: AyceOptionItem[] = [
+  { id: AyceOptions.PIZZA, label: "Pizza" },
+  { id: AyceOptions.SUSHI, label: "Sushi" },
+  { id: AyceOptions.ESFIHA, label: "Esfiha" },
+  { id: AyceOptions.HAMBURGUER, label: "Hambúrguer" },
+];
 
 export function Home() {
   return (
@@ -8,6 +18,17 @@ export function Home() {
       <Image source={require("@/assets/logo.png")} style={[styles.logo]} />
       <Text style={[styles.title]}>Contador de Rodízio</Text>
       <Text style={[styles.subtitle]}>Escolha o tipo de rodízio</Text>
+
+      <View
+        style={{
+          backgroundColor: "red",
+          width: "100%",
+          height: "100%",
+          alignItems: "center",
+        }}
+      >
+        <ScrollView></ScrollView>
+      </View>
     </View>
   );
 }
