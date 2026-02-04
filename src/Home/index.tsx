@@ -12,6 +12,10 @@ const AYCE_OPTION: AyceOptionItem[] = [
   { id: AyceOptions.HAMBURGUER, label: "Hambúrguer" },
 ];
 
+function handleSelect(type: AyceOptions) {
+  console.log("clicou");
+}
+
 export function Home() {
   return (
     <View style={[styles.container]}>
@@ -27,7 +31,16 @@ export function Home() {
           alignItems: "center",
         }}
       >
-        <ScrollView></ScrollView>
+        <ScrollView>
+          {AYCE_OPTION.map((item) => (
+            <Rodizio
+              key={item.id}
+              label={item.label}
+              type={item.id}
+              onPress={() => handleSelect(item.id)}
+            />
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
